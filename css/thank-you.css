@@ -1,0 +1,16 @@
+main {
+  text-align: center;
+  padding-bottom: 4rem;
+}
+
+main::after {
+  height: 200px;
+}
+
+footer {
+  padding: 100px 1rem 0 1rem;
+}
+
+h2 {
+  text-transform: capitalize;
+}

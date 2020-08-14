@@ -1,0 +1,142 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
+h2 {
+  margin: 0.5rem 0;
+}
+
+h3 {
+  font-size: 39px;
+}
+
+label {
+  font-size: 16px;
+}
+
+h5 {
+  margin-bottom: 0;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+.contact-us {
+  font-size: 26px;
+  margin-top: 1rem;
+  display: inline-block;
+}
+
+.section {
+  text-align: center;
+}
+
+.phone-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+}
+
+.phone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-image: url("../assets/phone.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  padding: 86px 11px 83px 9px;
+  width: 290px;
+  height: 649px;
+  align-self: center;
+  margin-top: 4rem;
+  position: relative;
+}
+
+.phone video {
+  width: 270px;
+  height: auto;
+}
+.phone-right {
+  padding: 0;
+}
+
+.half-container {
+  width: 100%;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  h5 {
+    margin-top: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  .half-container {
+    width: 50%;
+  }
+
+  .pl-1 {
+    padding-left: 1rem;
+  }
+
+  .section {
+    text-align: left;
+  }
+
+  .phone-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+
+  .phone-right {
+    padding: 0 1rem 0 4rem;
+    text-align: left;
+  }
+
+  .phone {
+    align-self: flex-start;
+    margin-top: -1rem;
+  }
+
+  .align-above {
+    padding-left: 353px;
+  }
+
+  .section-middle-top {
+    margin-top: 2rem;
+  }
+}
