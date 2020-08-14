@@ -6,7 +6,7 @@
   "author": "Justin Robb <reptarsrage@gmail.com>",
   "scripts": {
     "clean": "rimraf dist .cache",
-    "build": "parcel build index.html",
+    "build": "parcel build *.html",
     "dev": "parcel index.html --open",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
