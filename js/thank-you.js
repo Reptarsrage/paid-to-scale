@@ -10,5 +10,8 @@
   }
 
   // First name
-  firstName.textContent = queryParams['invitee_first_name'];
+  const { first_name } = queryParams;
+  if (first_name) {
+    firstName.textContent = `, ${first_name}`
+  }
 })();
