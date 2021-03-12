@@ -28,8 +28,8 @@ const logger = Bunyan.createLogger({
 const transport = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.USER,
-    pass: process.env.PASSWORD
+    user: process.env.NODE_USER,
+    pass: process.env.NODE_PASSWORD
   },
 });
 844952
@@ -50,14 +50,14 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api/email', (req, res) => {
-  logger.warn('Processing');
+  res.redirect(`/thank-you.html?${qs.stringify(req.query)}`);
   
   return email
     .send({
       template: 'mars',
       message: {
         to: 'brandon@paidtoscale.com',
-        from: 'Paid to Scale <brandon@paidtoscale.com>',
+        from: `Paid to Scale <${process.env.NODE_USER}>`,
       },
       locals: {
         first_name: req.query.first_name,
@@ -68,12 +68,12 @@ app.get('/api/email', (req, res) => {
       },
     })
     .then(() => {
-      logger.warn('Successfully sent email');
-      res.send('ok');
+      logger.info('Successfully sent email');
     })
     .catch((err) => {
       logger.error('Failed to send email', err);
-      res.send('ok');
+      logger.error(`USER '${process.env.NODE_USER}'`);
+      logger.error(`PASSWORD '${process.env.NODE_PASSWORD}'`);
     });
 });
 

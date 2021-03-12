@@ -6,7 +6,7 @@
   "author": "jrobb",
   "license": "UNLICENSED",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "cross-env NODE_USER=brandon@paidtoscale.com NODE_PASSWORD=ulivjinozdwhznbi nodemon index.js"
   },
   "dependencies": {
     "bunyan": "^1.8.15",
@@ -20,6 +20,7 @@
     "rotating-file-stream": "^2.1.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.7"
   }
 }
