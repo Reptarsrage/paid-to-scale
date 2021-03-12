@@ -26,16 +26,13 @@ const logger = Bunyan.createLogger({
 });
 
 const transport = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
+  service: 'gmail',
   auth: {
-    type: 'OAuth2',
-    user: 'no-reply@paidtoscale.com',
-    serviceClient: process.env.CLIENT_ID,
-    privateKey: process.env.CLIENT_SECRET.replace(/\\n/g, '\n'), // Env var garbles key
+    user: process.env.USER,
+    pass: process.env.PASSWORD
   },
 });
+844952
 
 const email = new Email({
   send: true,
@@ -53,14 +50,14 @@ app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api/email', (req, res) => {
-  res.redirect(`/thank-you.html?${qs.stringify(req.query)}`);
-
+  logger.warn('Processing');
+  
   return email
     .send({
       template: 'mars',
       message: {
         to: 'brandon@paidtoscale.com',
-        from: 'Paid to Scale <no-reply@paidtoscale.com>',
+        from: 'Paid to Scale <brandon@paidtoscale.com>',
       },
       locals: {
         first_name: req.query.first_name,
@@ -71,10 +68,12 @@ app.get('/api/email', (req, res) => {
       },
     })
     .then(() => {
-      logger.info('Successfully sent email');
+      logger.warn('Successfully sent email');
+      res.send('ok');
     })
     .catch((err) => {
       logger.error('Failed to send email', err);
+      res.send('ok');
     });
 });
 
