@@ -1,0 +1,19 @@
+{
+  "name": "paid-to-scale-api",
+  "version": "1.0.0",
+  "description": "API to support the website",
+  "main": "index.js",
+  "author": "jrobb",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "bunyan": "^1.8.14",
+    "compression": "^1.7.4",
+    "email-templates": "^7.1.0",
+    "express": "^4.17.1",
+    "helmet": "^4.0.0",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.4.11",
+    "pug": "^3.0.0",
+    "rotating-file-stream": "^2.1.3"
+  }
+}
